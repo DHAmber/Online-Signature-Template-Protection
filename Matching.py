@@ -32,7 +32,7 @@ def matching_genuine():
 		f=f"Final_Template\\{C.DB}\\Template_{D}.txt";L=f"Template_{D}.txt"
 		with I(f,J)as g:h=g.read().decode(Y)
 		for E in c:
-			try:F=A.time();B(f"Matching {L} to {E}");i=extract_data(P[D],E);G=A.time();B(f"Time to extract query data took {G-F:.2f} seconds");j=True;F=A.time();k=N.CreateQuery(D,i,j);G=A.time();B(f"Time to create query bit string took {G-F:.2f} seconds");F=A.time();a,M,H,b=match(h,k);G=A.time();B(f"Time to match bit strings took {G-F:.2f} seconds");l=V(M/H*100,2)if H>0 else .0;Z.append([L,f"USER{D}_{E}",b,a,H,M,l,'Match']);B(L,f"vs USER{D}_{E}",f"total_bit: {b}",f"all_matching: {a}",f"all_ones: {H}",f"matching_ones: {M}")
+			try:F=A.time();B(f"Matching {L} to {E}");i=extract_data(P[D],E);G=A.time();B(f"Time to extract query data took {G-F:.2f} seconds");j=True;F=A.time();k=N.CreateQuery(D,i,j);G=A.time();B(f"Time to create query bit string took {G-F:.2f} seconds");F=A.time();a,M,H,b=match(h,k);G=A.time();B(f"Time to match bit strings took {G-F:.2f} seconds");l=V(M/H*100,2)if H>0 else .0;Z.append([L,f"USER{D}_{E}",b,a,H,M,l,'Match']);B("Processing complete..")
 			except W as m:B(f"Error processing user {D}, gen {E}: {m}");continue
 		n=T.DataFrame(data=Z,columns=S);n.to_csv(e,index=K)
 def matching_fake():
